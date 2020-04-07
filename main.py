@@ -46,7 +46,7 @@ print(breastCancerData.describe())
 breastCancerData["diagnosis"] = breastCancerData["diagnosis"].apply(lambda x : "1" if x == "M" else "0")
 breastCancerData = breastCancerData.set_index("id")
 del breastCancerData["Unnamed: 32"]
-print(breastCancerData.groupby("diagnosis").size())
+# print(breastCancerData.groupby("diagnosis").size())
 """
 OUTPUT:
 
@@ -82,7 +82,7 @@ fig.colorbar(cax, ticks=[.75,.8,.85,.90,.95,1])
 
 x = breastCancerData.drop("diagnosis", axis=1).values
 y = breastCancerData["diagnosis"].values
-print("x: ", x, "\n\n" "y: ", y)
+# print("x: ", x, "\n\n" "y: ", y)
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size= 0.20, random_state=21)
 
 # Baseline Algorithm Inspection:
@@ -110,5 +110,6 @@ fig = plt.figure()
 fig.suptitle('Performance Comparison')
 ax = fig.add_subplot(111)
 plt.boxplot(RESULTS)
+print(RESULTS)
 ax.set_xticklabels(names)
 plt.show()
